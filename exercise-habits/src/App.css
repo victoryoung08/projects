@@ -1,3 +1,7 @@
+:root {
+  box-sizing: border-box;
+}
+
 * {
   --primary-color: #3a6ce0;
   --text-primary-color: #131313;
@@ -12,10 +16,28 @@ nav {
 
 .container-l {
   padding: 5rem 3rem;
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: auto;
 }
 
 .card {
   width: 100%;
+}
+
+.align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
 }
 
 .primary-btn {
@@ -25,4 +47,16 @@ nav {
 
 .text-align-center {
   text-align: center;
+}
+
+.image {
+  width: 100%;
+}
+
+.contain {
+  object-fit: contain;
+}
+
+.h-300 {
+  height: 300px;
 }

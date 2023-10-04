@@ -6,20 +6,30 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
 
+  const features = [
+    {
+      heading: "We'll come to you",
+      subPara: "Exercise in the comfort of your own home or at a local park!",
+      imgSrc: "",
+    },
+    {
+      heading: "Personalised Exercise Programs, every time",
+      subPara: "You'll always get exercises specific to your needs and goals",
+      imgSrc: "",
+    },
+    {
+      heading: "We'll come to you",
+      subPara: "Exercise in the comfort of your own home or at a local park!",
+      imgSrc: "",
+    },
+  ];
+
   return (
     <>
       <NavBar />
       <Header />
       <Logos />
-      <Feature
-        h3={
-          "Give your body what it needs to build strength, confidence and fitness"
-        }
-        p={
-          "Exercise is an amazing way to keep your body strong, flexible and healthy"
-        }
-        imgSrc={""}
-      />
+      <Values features={features} />
       <Form />
     </>
   );
@@ -41,8 +51,12 @@ function Header() {
         <p>Use exercise to improve your health, confidence and how you feel</p>
         <button className="primary-btn">Get Started</button>
       </div>
-      <div className="card">
-        <img src="" alt="" />
+      <div className="card align-center">
+        <img
+          className="image contain h-300"
+          src="/src/assets/img/exercise-physiology-hero.webp"
+          alt=""
+        />
       </div>
     </header>
   );
@@ -63,17 +77,29 @@ function Logos() {
   );
 }
 
-function Feature({ h3, p, imgSrc }) {
-  return (
-    <div className="container-l flex-row">
-      <div className="card">
-        <h3>{h3}</h3>
-        <p>{p}</p>
+function Values({ features }) {
+  return features.map((feature, i) =>
+    i % 2 === 0 ? (
+      <div className="container-l flex-row">
+        <div className="card">
+          <h3>{feature.heading}</h3>
+          <p>{feature.subPara}</p>
+        </div>
+        <div className="card">
+          <img src={feature.imgSrc} alt="" />
+        </div>
       </div>
-      <div className="card">
-        <img src={imgSrc} alt="" />
+    ) : (
+      <div className="container-l flex-row">
+        <div className="card">
+          <img src={feature.imgSrc} alt="" />
+        </div>
+        <div className="card">
+          <h3>{feature.heading}</h3>
+          <p>{feature.subPara}</p>
+        </div>
       </div>
-    </div>
+    )
   );
 }
 
